@@ -1,27 +1,10 @@
-import { createBrowserRouter, redirect, RouterProvider } from "react-router";
-import { PersonalPage } from "../pages/personal-page";
-import { ChatPage } from "../pages/chat-page/ui/chat-page";
-import { ParserPage } from "../pages/parser-page";
-import { LoginPage } from "../pages/login-page";
-import { Provider } from "react-redux";
-import { store } from "./model";
 import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { RouterProvider } from "react-router";
+import { inject, store } from "./model";
+import { router } from "./router";
 
-const router = createBrowserRouter([
-	{
-		path: "/",
-		Component: PersonalPage,
-	},
-	{ path: "/login", Component: LoginPage },
-	{ path: "/chat", Component: ChatPage },
-	{ path: "/parser", Component: ParserPage },
-	{
-		path: "*",
-		loader: () => {
-			return redirect("/");
-		},
-	},
-]);
+inject({ reduxStore: store, router });
 
 function App() {
 	return (

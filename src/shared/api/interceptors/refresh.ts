@@ -1,6 +1,6 @@
 import type { AxiosInstance, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
-import { getRefreshToken } from "../tokens";
+import { getRefreshToken, resetTokens, setAccessToken } from "../tokens";
 import { PATHS } from "../config";
 
 const isAuthRequest = (url?: string) =>
@@ -53,19 +53,20 @@ export const refreshInterceptor = (instance: AxiosInstance) => {
 				isRefreshing = true;
 
 				try {
-					const { data } = await axios.post("/api/auth/refresh", {
-						refreshToken: getRefreshToken(),
+					const { data } = await axios.post<{ access: string }>(PATHS.REFRESH, {
+						refresh: getRefreshToken(),
 					});
 
-					const newToken = data.accessToken;
+					const newToken = data.access;
 
-					// ... save token in memory ...
+					setAccessToken(newToken);
 
 					processQueue(null, newToken);
 					originalRequest.headers.Authorization = `Bearer ${newToken}`;
 
 					return instance(originalRequest);
 				} catch (refreshError) {
+					resetTokens();
 					processQueue(refreshError, null);
 
 					return Promise.reject(refreshError);

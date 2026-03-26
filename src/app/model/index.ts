@@ -1,8 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import { persistMiddleware } from "./persist-middleware";
 import { authActions, authReducer } from "@/pages/login-page";
 import { injectTokens } from "@/shared/api";
+import { configureStore } from "@reduxjs/toolkit";
+import { persistMiddleware } from "./persist-middleware";
 
 // Предзагрузка в стор токенов из localStorage
 function loadState() {
@@ -26,14 +25,24 @@ export const store = configureStore({
 	preloadedState: loadState(),
 });
 
-setupListeners(store.dispatch);
-
-injectTokens({
-	getAccessToken: () => store.getState().auth.accessToken ?? null,
-	getRefreshToken: () => store.getState().auth.refreshToken ?? null,
-	setAccessToken: (token: string) =>
-		store.dispatch(authActions.setAccessToken(token)),
-});
+export const inject = ({
+	reduxStore,
+	router,
+}: {
+	reduxStore: typeof store;
+	router: { navigate: (path: string) => void };
+}) => {
+	injectTokens({
+		getAccessToken: () => reduxStore.getState().auth.accessToken ?? null,
+		getRefreshToken: () => reduxStore.getState().auth.refreshToken ?? null,
+		setAccessToken: (token: string) =>
+			reduxStore.dispatch(authActions.setAccessToken(token)),
+		resetTokens: () => {
+			reduxStore.dispatch(authActions.removeTokens());
+			router.navigate("/login");
+		},
+	});
+};
 
 declare global {
 	type RootState = ReturnType<typeof store.getState>;

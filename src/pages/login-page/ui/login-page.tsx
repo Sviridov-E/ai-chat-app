@@ -1,8 +1,8 @@
 import { Input } from "@/shared/ui/input";
 import "./login-page.scss";
-import { useForm } from "react-hook-form";
 import { authActions } from "../model/auth-slice";
 import { useAppDispatch, useAppSelector } from "@/shared/redux";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { LoaderCircle } from "lucide-react";
 import clsx from "clsx";
