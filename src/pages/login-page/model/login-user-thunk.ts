@@ -13,7 +13,7 @@ export const loginUser = createAsyncThunk(
 				refresh: string;
 			}>(PATHS.LOGIN, creds);
 
-			return response.data;
+			return { ...response.data, username: creds.username };
 		} catch {
 			return rejectWithValue("Ошибка входа");
 		}

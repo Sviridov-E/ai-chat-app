@@ -4,6 +4,7 @@ import { loginUser } from "./login-user-thunk";
 interface AuthState {
 	accessToken?: string | null;
 	refreshToken?: string | null;
+	username?: string | null;
 	error?: string | null;
 	isLoading?: boolean;
 }
@@ -11,6 +12,7 @@ interface AuthState {
 const initialState: AuthState = {
 	accessToken: null,
 	refreshToken: null,
+	username: null,
 	error: null,
 	isLoading: false,
 };
@@ -26,6 +28,7 @@ const authSlice = createSlice({
 			state.accessToken = null;
 			state.refreshToken = null;
 			state.error = null;
+			state.username = null;
 		},
 	},
 	extraReducers: (builder) => {
@@ -38,6 +41,7 @@ const authSlice = createSlice({
 			state.isLoading = false;
 			state.accessToken = action.payload.access;
 			state.refreshToken = action.payload.refresh;
+			state.username = action.payload.username;
 		});
 
 		builder.addCase(loginUser.rejected, (state, action) => {
