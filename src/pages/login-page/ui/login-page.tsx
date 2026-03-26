@@ -1,12 +1,11 @@
-import { Input } from "@/shared/ui/input";
-import "./login-page.scss";
-import { authActions } from "../model/auth-slice";
 import { useAppDispatch, useAppSelector } from "@/shared/redux";
+import { Button } from "@/shared/ui/button";
+import { Input } from "@/shared/ui/input";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { LoaderCircle } from "lucide-react";
-import clsx from "clsx";
 import { useNavigate } from "react-router";
+import { authActions } from "../model/auth-slice";
+import "./login-page.scss";
 
 interface FormFields {
 	username: string;
@@ -59,12 +58,9 @@ export const LoginPage = () => {
 						error={errors.password?.message}
 					/>
 				</div>
-				<button
-					disabled={loading}
-					className={clsx(loading && "button__button_disabled")}
-				>
-					{loading ? <LoaderCircle className="button__loader" /> : "Войти"}
-				</button>
+				<Button disabled={loading} loading={loading}>
+					Войти
+				</Button>
 			</form>
 		</div>
 	);

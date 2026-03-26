@@ -4,6 +4,7 @@ import { ChatPage } from "../pages/chat-page/ui/chat-page";
 import { ParserPage } from "../pages/parser-page";
 import { LoginPage } from "../pages/login-page";
 import { store } from "./model";
+import { MainLayout } from "./ui/main-layout";
 
 const redirectToLoginLoader = () => {
 	const access = store.getState().auth.accessToken;
@@ -12,10 +13,18 @@ const redirectToLoginLoader = () => {
 
 export const router = createBrowserRouter([
 	{
-		path: "/",
-		Component: PersonalPage,
+		Component: MainLayout,
 		loader: redirectToLoginLoader,
+		children: [
+			{
+				path: "/",
+				Component: PersonalPage,
+			},
+			{ path: "/chat", Component: ChatPage },
+			{ path: "/parser", Component: ParserPage },
+		],
 	},
+
 	{
 		path: "/login",
 		loader: () => {
@@ -24,8 +33,7 @@ export const router = createBrowserRouter([
 		},
 		Component: LoginPage,
 	},
-	{ path: "/chat", loader: redirectToLoginLoader, Component: ChatPage },
-	{ path: "/parser", loader: redirectToLoginLoader, Component: ParserPage },
+
 	{
 		path: "*",
 		loader: () => {
