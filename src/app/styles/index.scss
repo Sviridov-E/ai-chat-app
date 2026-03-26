@@ -1,0 +1,39 @@
+@forward "the-new-css-reset/css/reset.css";
+
+* {
+	font-family: v.$font-main;
+	font-size: v.$font-size-base;
+	font-weight: v.$font-weight-body;
+}
+
+h1 {
+	font-family: v.$font-main;
+	font-size: v.$font-size-xl;
+	font-weight: v.$font-weight-bold;
+}
+
+h2 {
+	font-family: v.$font-main;
+	font-size: v.$font-size-lg;
+	font-weight: v.$font-weight-semibold;
+}
+
+h3 {
+	font-family: v.$font-main;
+	font-size: v.$font-size-lg;
+	font-weight: v.$font-weight-medium;
+}
+
+button {
+	background: v.$color-primary;
+	font-size: v.$font-size-md;
+	padding: 8px 24px;
+	color: v.$color-text-light;
+	border-radius: 8px;
+	transition: background-color 200ms;
+	cursor: pointer;
+	text-align: center;
+	&:hover {
+		background: v.$color-primary-hover;
+	}
+}

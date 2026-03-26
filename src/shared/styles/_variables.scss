@@ -1,0 +1,36 @@
+// Цвета
+
+$color-bg: oklch(92.9% 0.013 255.508);
+$color-bg-light: oklch(98.4% 0.003 247.858);
+$color-surface: oklch(70.4% 0.04 256.788);
+$color-border: oklch(57.2% 0.044 257.287);
+$color-text-main: oklch(12.9% 0.042 264.695);
+$color-text-light: oklch(92.9% 0.042 264.695);
+$color-text-muted: oklch(20.8% 0.042 265.755);
+
+$color-primary: #6366f1;
+$color-primary-hover: #4f46e5;
+$color-primary-light: #818cf8;
+
+$color-error: #ef4444;
+$color-success: #22c55e;
+
+// Типографика
+
+$font-main:
+	"Inter",
+	system-ui,
+	-apple-system,
+	sans-serif;
+$font-code: "JetBrains Mono", "Fira Code", monospace;
+$font-size-sm: 0.8rem;
+$font-size-base: 1rem;
+$font-size-md: 1.5rem;
+$font-size-lg: 2rem;
+$font-size-xl: 3rem;
+$font-size-xxl: 4rem;
+
+$font-weight-body: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 800;
