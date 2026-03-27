@@ -19,11 +19,11 @@ $color-success: oklch(0.7227 0.192 149.58);
 // Типографика
 
 $font-main:
-	"Inter",
-	system-ui,
-	-apple-system,
-	sans-serif;
-$font-code: "JetBrains Mono", "Fira Code", monospace;
+  'Inter',
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-code: 'JetBrains Mono', 'Fira Code', monospace;
 $font-size-sm: 0.8rem;
 $font-size-base: 1rem;
 $font-size-md: 1.5rem;

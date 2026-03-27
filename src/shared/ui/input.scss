@@ -1,25 +1,25 @@
 .input__label {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	input {
-		margin-top: 8px;
-		border: 1px solid v.$color-surface;
-		height: 3rem;
-		border-radius: 8px;
-		padding: 0px 12px;
-		font-size: 1.1rem;
-	}
+  input {
+    margin-top: 8px;
+    border: 1px solid v.$color-surface;
+    height: 3rem;
+    border-radius: 8px;
+    padding: 0px 12px;
+    font-size: 1.1rem;
+  }
 
-	.input__error {
-		color: v.$color-error;
-		padding-top: 4px;
-		font-size: v.$font-size-sm;
-	}
+  .input__error {
+    color: v.$color-error;
+    padding-top: 4px;
+    font-size: v.$font-size-sm;
+  }
 
-	&_error {
-		input {
-			border: 2px solid v.$color-error;
-		}
-	}
+  &_error {
+    input {
+      border: 2px solid v.$color-error;
+    }
+  }
 }

@@ -1,11 +1,11 @@
 .personal-page {
-	h1 {
-		padding: 64px 0px;
+  h1 {
+    padding: 64px 0px;
 
-		@include respond-to("mobile") {
-			padding: 32px 0px;
-			font-size: v.$font-size-md;
-			font-weight: v.$font-weight-semibold;
-		}
-	}
+    @include respond-to('mobile') {
+      padding: 32px 0px;
+      font-size: v.$font-size-md;
+      font-weight: v.$font-weight-semibold;
+    }
+  }
 }

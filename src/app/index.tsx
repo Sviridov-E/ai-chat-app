@@ -1,19 +1,19 @@
-import { Toaster } from "react-hot-toast";
-import { Provider } from "react-redux";
-import { RouterProvider } from "react-router";
-import { inject, store } from "./model";
-import { router } from "./router";
+import { Toaster } from 'react-hot-toast'
+import { Provider } from 'react-redux'
+import { RouterProvider } from 'react-router'
+import { inject, store } from './model'
+import { router } from './router'
 
-inject({ reduxStore: store, router });
+inject({ reduxStore: store, router })
 
 function App() {
-	return (
-		<Provider store={store}>
-			<RouterProvider router={router} />
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
 
-			<Toaster position="bottom-right" />
-		</Provider>
-	);
+      <Toaster position="bottom-right" />
+    </Provider>
+  )
 }
 
-export default App;
+export default App

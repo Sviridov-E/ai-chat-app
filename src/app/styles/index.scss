@@ -1,25 +1,25 @@
-@forward "the-new-css-reset/css/reset.css";
+@forward 'the-new-css-reset/css/reset.css';
 
 * {
-	font-family: v.$font-main;
-	font-size: v.$font-size-base;
-	font-weight: v.$font-weight-body;
+  font-family: v.$font-main;
+  font-size: v.$font-size-base;
+  font-weight: v.$font-weight-body;
 }
 
 h1 {
-	font-family: v.$font-main;
-	font-size: v.$font-size-xl;
-	font-weight: v.$font-weight-bold;
+  font-family: v.$font-main;
+  font-size: v.$font-size-xl;
+  font-weight: v.$font-weight-bold;
 }
 
 h2 {
-	font-family: v.$font-main;
-	font-size: v.$font-size-lg;
-	font-weight: v.$font-weight-semibold;
+  font-family: v.$font-main;
+  font-size: v.$font-size-lg;
+  font-weight: v.$font-weight-semibold;
 }
 
 h3 {
-	font-family: v.$font-main;
-	font-size: v.$font-size-lg;
-	font-weight: v.$font-weight-medium;
+  font-family: v.$font-main;
+  font-size: v.$font-size-lg;
+  font-weight: v.$font-weight-medium;
 }
