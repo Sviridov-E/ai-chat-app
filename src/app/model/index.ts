@@ -1,4 +1,4 @@
-import { authActions, authReducer } from "@/pages/login-page";
+import { authActions, authReducer, initialAuthState } from "@/pages/login-page";
 import { injectTokens } from "@/shared/api";
 import { configureStore } from "@reduxjs/toolkit";
 import { persistMiddleware } from "./persist-middleware";
@@ -9,7 +9,7 @@ function loadState() {
 	try {
 		const serializedState = localStorage.getItem("auth");
 		if (serializedState === null) return undefined;
-		return { auth: JSON.parse(serializedState) };
+		return { auth: { ...initialAuthState, ...JSON.parse(serializedState) } };
 	} catch (err) {
 		if (err instanceof Error) console.log(err.message);
 		return undefined;

@@ -1,4 +1,15 @@
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+declare global {
+	interface Window {
+		ENV_BACKEND_URL?: string;
+	}
+}
+
+const isDevMode = import.meta.env.DEV;
+
+export const API_URL =
+	(!isDevMode && window.ENV_BACKEND_URL) ||
+	(import.meta.env.VITE_API_URL as string) ||
+	"http://localhost:8000";
 
 export const PATHS = {
 	LOGIN: "/api/auth/login",

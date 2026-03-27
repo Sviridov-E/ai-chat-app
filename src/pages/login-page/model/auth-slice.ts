@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { loginUser } from "./login-user-thunk";
 
-interface AuthState {
+export interface AuthState {
 	accessToken?: string | null;
 	refreshToken?: string | null;
 	username?: string | null;
@@ -9,7 +9,7 @@ interface AuthState {
 	isLoading?: boolean;
 }
 
-const initialState: AuthState = {
+export const initialAuthState: AuthState = {
 	accessToken: null,
 	refreshToken: null,
 	username: null,
@@ -19,7 +19,7 @@ const initialState: AuthState = {
 
 const authSlice = createSlice({
 	name: "auth",
-	initialState,
+	initialState: initialAuthState,
 	reducers: {
 		setAccessToken: (state, action: PayloadAction<string>) => {
 			state.accessToken = action.payload;

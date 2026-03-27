@@ -1,2 +1,7 @@
 export { LoginPage } from "./ui/login-page";
-export { authActions, authReducer } from "./model/auth-slice";
+export {
+	authActions,
+	authReducer,
+	initialAuthState,
+	type AuthState,
+} from "./model/auth-slice";
