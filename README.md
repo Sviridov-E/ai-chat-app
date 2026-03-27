@@ -13,13 +13,13 @@ docker build -t chat-app .
 Запуск со стандартным BACKEND_URL
 
 ```shell
-sudo docker run -d -p 3000:80 --name chat-app frontend-chat
+sudo docker run -d -p 3000:80 --name frontend-chat chat-app
 ```
 
 Запуск со кастомным BACKEND_URL
 
 ```shell
-sudo docker run -d -p 3000:80 -e BACKEND_URL="http://localhost:1234" --name chat-app frontend-chat
+sudo docker run -d -p 3000:80 -e BACKEND_URL="http://localhost:1234" --name frontend-chat chat-app
 ```
 
 Приложение будет доступно на [http://localhost:3000](http://localhost:3000)
