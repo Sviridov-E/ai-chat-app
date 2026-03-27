@@ -22,15 +22,16 @@ export const useChatStream = (options: {
 			try {
 				await dispatch(fetchChatStream({ type })).unwrap();
 			} catch (error) {
-				console.log(error);
-				if (
-					!!error &&
-					typeof error === "object" &&
-					"reason" in error &&
-					error.reason === "authRefresh"
-				) {
-					wasInterruptedRef.current = true;
-					lastTypeRef.current = type;
+				if (!!error && typeof error === "object" && "reason" in error) {
+					if (error.reason === "authRefresh") {
+						wasInterruptedRef.current = true;
+						lastTypeRef.current = type;
+					} else
+						return options.showError(
+							"message" in error && typeof error.message === "string"
+								? error.message
+								: "Произошла ошибка",
+						);
 				} else if (error instanceof Error) {
 					return options.showError(error.message || "Произошла ошибка");
 				}

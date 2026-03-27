@@ -11,7 +11,7 @@ function App() {
 		<Provider store={store}>
 			<RouterProvider router={router} />
 
-			<Toaster position="bottom-center" />
+			<Toaster position="bottom-right" />
 		</Provider>
 	);
 }
