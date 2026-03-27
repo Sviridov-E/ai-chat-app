@@ -1,7 +1,6 @@
 import { createBrowserRouter, redirect } from "react-router";
 import { PersonalPage } from "../pages/personal-page";
 import { ChatPage } from "../pages/chat-page/ui/chat-page";
-import { ParserPage } from "../pages/parser-page";
 import { LoginPage } from "../pages/login-page";
 import { store } from "./model";
 import { MainLayout } from "./ui/main-layout";
@@ -21,7 +20,6 @@ export const router = createBrowserRouter([
 				Component: PersonalPage,
 			},
 			{ path: "/chat", Component: ChatPage },
-			{ path: "/parser", Component: ParserPage },
 		],
 	},
 

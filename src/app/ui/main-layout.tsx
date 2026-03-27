@@ -10,10 +10,6 @@ const routes = [
 		path: "/chat",
 	},
 	{
-		name: "Парсер",
-		path: "/parser",
-	},
-	{
 		name: "Личный кабинет",
 		path: "/",
 	},

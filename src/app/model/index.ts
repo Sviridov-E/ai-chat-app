@@ -2,6 +2,7 @@ import { authActions, authReducer } from "@/pages/login-page";
 import { injectTokens } from "@/shared/api";
 import { configureStore } from "@reduxjs/toolkit";
 import { persistMiddleware } from "./persist-middleware";
+import { chatReducer } from "@/entities/chat";
 
 // Предзагрузка в стор токенов из localStorage
 function loadState() {
@@ -18,6 +19,7 @@ function loadState() {
 export const store = configureStore({
 	reducer: {
 		auth: authReducer,
+		chat: chatReducer,
 	},
 	middleware: (getDefaultMiddleware) => {
 		return getDefaultMiddleware().concat([persistMiddleware]);
