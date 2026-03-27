@@ -7,14 +7,15 @@ export const Button = ({
 	loading,
 	className,
 	children,
+	disabled,
 	...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & { loading?: boolean }) => (
 	<button
-		disabled={loading}
+		disabled={disabled || loading}
 		className={clsx(
 			"ui-button",
 			className,
-			loading && "button__button_disabled",
+			(disabled || loading) && "button__button_disabled",
 		)}
 		{...props}
 	>

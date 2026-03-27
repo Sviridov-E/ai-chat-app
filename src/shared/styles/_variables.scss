@@ -8,12 +8,13 @@ $color-text-main: oklch(12.9% 0.042 264.695);
 $color-text-light: oklch(92.9% 0.042 264.695);
 $color-text-muted: oklch(20.8% 0.042 265.755);
 
-$color-primary: #6366f1;
-$color-primary-hover: #4f46e5;
-$color-primary-light: #818cf8;
+$color-primary: oklch(0.5854 0.2041 277.12);
+$color-primary-hover: oklch(0.5106 0.2301 276.97);
+$color-primary-light: oklch(0.6801 0.1583 276.93);
 
-$color-error: #ef4444;
-$color-success: #22c55e;
+$color-error: oklch(0.6368 0.2078 25.33);
+$color-error-bg: oklch(83.013% 0.09435 27.218 / 0.225);
+$color-success: oklch(0.7227 0.192 149.58);
 
 // Типографика
 

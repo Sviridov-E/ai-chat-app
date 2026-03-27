@@ -10,7 +10,7 @@ export default defineConfig({
 		preprocessorOptions: {
 			scss: {
 				importers: [new NodePackageImporter()],
-				additionalData: `@use "@/shared/styles/_variables.scss" as v;`,
+				additionalData: `@use "@/shared/styles/_variables.scss" as v; @use "@/shared/styles/_breakpoints.scss" as *;`,
 			},
 		},
 	},

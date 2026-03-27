@@ -39,56 +39,6 @@ export const useChatStream = (options: {
 		[dispatch, options],
 	);
 
-	// 	setIsLoading(true);
-
-	// 	try {
-	// 		await fetchEventSource(url, {
-	// 			headers: {
-	// 				Authorization: `Bearer ${accessToken}`,
-	// 			},
-	// 			signal: ctrl.signal,
-
-	// 			onmessage(msg) {
-	// 				const json = JSON.parse(msg.data);
-	// 				setContent((prev) => prev + (json.content || ""));
-	// 			},
-
-	// 			onclose() {
-	// 				setIsLoading(false);
-	// 				abortControllerRef.current = null;
-	// 			},
-
-	// 			async onopen(response) {
-	// 				if (response.ok) return;
-
-	// 				if (response.status === 400) {
-	// 					// Если токен протух, останавливаем и делаем рефреш
-	// 					// когда токен обновится из редакса - соединение восстановится
-	// 					ctrl.abort();
-	// 					wasInterruptedRef.current = true;
-	// 					refreshToken();
-	// 					return;
-	// 				}
-
-	// 				const errorMsg = `Ошибка сервера: ${response.status}`;
-	// 				options.showError(errorMsg); // Вызываем колбэк наружу
-	// 				throw new Error(errorMsg);
-	// 			},
-
-	// 			onerror(err) {
-	// 				if (!(err instanceof Error && err.name === "AbortError")) {
-	// 					options.showError(
-	// 						err instanceof Error ? err.message : "Ошибка сети",
-	// 					);
-	// 				}
-	// 				throw err;
-	// 			},
-	// 		});
-	// 	} catch (e) {
-	// 		console.error(e);
-	// 	}
-	// };
-
 	useEffect(() => {
 		if (accessToken && wasInterruptedRef.current && lastTypeRef.current) {
 			wasInterruptedRef.current = false;
